@@ -15,28 +15,36 @@ class HomeStateful extends StatefulWidget {
 }
 
 class _HomeStatefulState extends State<HomeStateful> {
+  var _texto = "Rafael Brito 2";
+
+
   @override
   Widget build(BuildContext context) {
 
-    var _titulo = "Rafael Brito";
 
     return Scaffold(
       appBar: AppBar(
         title: Text( "Frases do dia!" ),
         backgroundColor: Colors.green,
       ),
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: (){
+      body: Container(
+        child: Column(
+          children: [
+            ElevatedButton(
+                onPressed: (){
+                  setState(() {
+                    _texto = "Curso Flutter!";
+                  });
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrangeAccent),
+                ),
+                child: Text("Clique aqui"),
 
-              },
-
-              child: Text("Clique aqui"),
-
-          ),
-          Text("Nome: $_titulo")
-        ],
+            ),
+            Text("Nome: $_texto")
+          ],
+        ),
       ),
     );
   }
@@ -49,8 +57,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var _titulo = "Frases do dia";
+
 
     return Scaffold(
       appBar: AppBar(
